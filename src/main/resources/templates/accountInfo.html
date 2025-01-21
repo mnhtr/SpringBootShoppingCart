@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Info - Spring Shop Online</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/accountInfo.css}"/>
+    <th:block th:include="/_header"></th:block>
+</head>
+<body>
+<!-- Include the menu -->
+<th:block th:include="/_menu"></th:block>
+
+<!-- Page Title -->
+<div class="page-title">
+    Account Info
+</div>
+
+<!-- Account Info Section -->
+<div class="account-container">
+    <div class="account-content">
+        <ul>
+            <li>
+                <strong>User Name:</strong> <span th:utext="${#request.userPrincipal.name}"></span>
+            </li>
+            <li>
+                <strong>Roles:</strong>
+                <ul>
+                    <li th:each="auth : ${userDetails.authorities}" th:utext="${auth.authority}"></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+html, body {
+    height: 100%;
+    font-family: 'Lato', 'Open Sans', 'Abel', sans-serif;
+}
+
+.container {
+    margin-top: 1.5rem;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group img {
+    display: block;
+    margin: 0.5rem 0;
+    max-width: 100px;
+    height: auto;
+}
+
+.btn {
+    margin-right: 0.5rem;
+}

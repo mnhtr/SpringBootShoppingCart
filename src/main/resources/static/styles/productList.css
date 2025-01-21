@@ -1,0 +1,197 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+    /* Space between items */
+}
+
+.product-card {
+    width: 250px;
+    /* Fixed width */
+    height: 450px;
+    /* Fixed height */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 280px;
+    /* Fixed height for consistent image size */
+    object-fit: cover;
+    /* Ensure images fill the container proportionally */
+}
+
+.product-card .box {
+    padding: 10px;
+    height: 120px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    /* */
+    /* Fixed height for consistent descriptions */
+    /*
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;*/
+}
+
+.page-title {
+    margin-top: 1.5rem;
+}
+
+.product-card h6 {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+
+.product-card .product-name {
+ margin-top: 10px;
+    line-height: 1;
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    overflow: hidden;
+    /* Hide overflowing text */
+    text-overflow: ellipsis;
+    /* Add ellipsis */
+    max-width: 200px;
+    /* Limit the width for truncation */
+    display: block;
+}
+
+.product-card p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.product-card p span {
+    font-weight: bold;
+}
+
+.btn-buy {
+    margin-top: 15px; /* Adjust the margin to your needs */
+    display: inline-block; /* Ensure the element behaves like a block for spacing */
+    background-color: #007bff; /* Optional: Add styles for the button */
+    color: #fff; /* Button text color */
+    text-decoration: none; /* Remove underline from the link */
+    padding: 8px 13px; /* Adjust padding */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 14px; /* Font size for the button text */
+    transition: background-color 0.3s ease; /* Optional hover effect */
+}
+
+.btn-buy:hover {
+    background-color: #0056b3; /* Darken the button on hover */
+    text-decoration: none; /* remove underline */
+    color: #fff;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* Space between page numbers */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.page-number {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    /* Default text color */
+    text-decoration: none;
+    border: 1px solid #ddd;
+    /* Default border color */
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.page-number:hover {
+    background-color: #333;
+    /* Black background on hover */
+    border-color: #333;
+    /* Black border on hover */
+    color: #fff;
+    /* White text on hover */
+}
+
+.page-number.active {
+    background-color: #000;
+    /* Black background for active page */
+    color: #fff;
+    /* White text for contrast */
+    border-color: #000;
+    /* Black border for active page */
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    /* Subtle glow effect */
+}
+
+ /* General Button Styling */
+ .action-button {
+     display: inline-block;
+     padding: 10px 20px;
+     font-size: 14px;
+     font-weight: bold;
+     text-align: center;
+     color: #fff;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     text-decoration: none; /* For <a> */
+     transition: background-color 0.3s ease, transform 0.2s ease;
+ }
+
+ /* Edit Button Styling */
+ .edit-button {
+     margin-top: 10px;
+     background-color: #007bff; /* Blue */
+ }
+
+ .edit-button:hover {
+     background-color: #0056b3; /* Darker Blue */
+     text-decoration: none; /* For <a> */
+     color: #fff;
+     transform: scale(1.05);
+ }
+
+ /* Delete Button Styling */
+ .delete-button {
+     margin-top: 10px;
+     background-color: #dc3545; /* Red */
+ }
+
+ .delete-button:hover {
+     background-color: #b02a37; /* Darker Red */
+     transform: scale(1.05);
+ }
+
+ /* Ensure Forms Align with Links */
+ .action-form {
+     display: inline-block;
+     margin: 0 5px;
+ }
+
+ /* Focus Styling for Accessibility */
+ .action-button:focus {
+     outline: none;
+     box-shadow: 0 0 5px rgba(0, 123, 255, 0.7); /* Blue shadow */
+ }

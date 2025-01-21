@@ -1,0 +1,70 @@
+/* Navbar Styles */
+html,body {
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Abel', sans-serif;
+}
+
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 1rem;
+    color: #555;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item.active .nav-link {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Dropdown Menu */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 200px;
+    display: none; /* Initially hidden */
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Show on hover */
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #555;
+    display: block;
+}
+
+.dropdown-item:hover {
+    background-color: #f4f4f4;
+    color: #000;
+}
+
+/* Search Input */
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}

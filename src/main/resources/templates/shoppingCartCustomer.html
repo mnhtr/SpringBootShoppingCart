@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adidas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/shoppingCartCustomer.css}"/>
+    <th:block th:include="/_header"></th:block>
+</head>
+<body>
+<!-- Include the menu -->
+<th:block th:include="/_menu"></th:block>
+
+<!-- Customer Information Form -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="form-container">
+                <h3 class="mb-4">Enter Customer Information</h3>
+                <form method="POST" th:object="${customerForm}" th:action="@{/shoppingCartCustomer}">
+                    <!-- Customer Name -->
+                    <div class="form-group mb-3">
+                        <label for="customerName">Customer Name</label>
+                        <input type="text" class="form-control" id="customerName" th:field="*{name}">
+                        <span class="error-message"
+                              th:if="${#fields.hasErrors('name')}"
+                              th:errors="*{name}"></span>
+                    </div>
+                    <!-- Email -->
+                    <div class="form-group mb-3">
+                        <label for="customerEmail">Email</label>
+                        <input type="email" class="form-control" id="customerEmail" th:field="*{email}">
+                        <span class="error-message"
+                              th:if="${#fields.hasErrors('email')}"
+                              th:errors="*{email}"></span>
+                    </div>
+                    <!-- Phone -->
+                    <div class="form-group mb-3">
+                        <label for="customerPhone">Phone</label>
+                        <input type="text" class="form-control" id="customerPhone" th:field="*{phone}">
+                        <span class="error-message"
+                              th:if="${#fields.hasErrors('phone')}"
+                              th:errors="*{phone}"></span>
+                    </div>
+                    <!-- Address -->
+                    <div class="form-group mb-4">
+                        <label for="customerAddress">Address</label>
+                        <textarea class="form-control" id="customerAddress" th:field="*{address}"></textarea>
+                        <span class="error-message"
+                              th:if="${#fields.hasErrors('address')}"
+                              th:errors="*{address}"></span>
+                    </div>
+                    <!-- Submit and Reset Buttons -->
+                    <div class="form-actions">
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                        <input type="reset" value="Reset" class="btn btn-outline-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include the footer -->
+<th:block th:include="/_footer"></th:block>
+</body>
+</html>

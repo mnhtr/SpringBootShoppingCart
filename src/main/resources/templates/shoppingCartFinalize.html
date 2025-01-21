@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adidas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/shoppingCartFinalize.css}"/>
+    <th:block th:include="/_header"></th:block>
+</head>
+<body>
+
+<!-- Include Menu -->
+<th:block th:include="/_menu"></th:block>
+
+<!-- Page Title -->
+<div class="page-title">Finalize</div>
+
+<!-- Order Finalization Section -->
+<div class="container">
+    <h3>Thank You for Your Order!</h3>
+    <p>Your order code is: <span th:utext="${lastOrderedCart.orderNum}"></span></p>
+</div>
+
+</body>
+</html>

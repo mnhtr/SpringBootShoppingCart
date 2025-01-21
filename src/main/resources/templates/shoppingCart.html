@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adidas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/shoppingCart.css}"/>
+    <th:block th:include="/_header"></th:block>
+</head>
+<body>
+<!-- Include the menu -->
+<th:block th:include="/_menu"></th:block>
+
+<!-- Empty cart message -->
+<th:block th:if="${cartForm == null || cartForm.cartLines == null || cartForm.cartLines.empty}">
+    <div class="empty-cart-message">
+        <h2>There are no items in your cart</h2>
+        <a th:href="@{/productList}" class="btn btn-primary">Show Product List</a>
+    </div>
+</th:block>
+
+<!-- Cart details -->
+<div class="container cart_bag">
+    <h2 class="cart-title">Your Bag</h2>
+    <div class="row">
+        <div class="col-lg-8 col-sm-8 col-xs-12">
+            <table class="table">
+                <th:block th:if="${cartForm != null && cartForm.cartLines != null && !cartForm.cartLines.empty}">
+                    <form method="POST" th:object="${cartForm}" th:action="@{/shoppingCart}">
+                        <div class="product-preview-container"
+                             th:each="cartLineInfo, varStatus : ${cartForm.cartLines}">
+                            <tr>
+                                <td>
+                                    <img th:src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}"
+                                         class="product-image">
+                                </td>
+                                <td>
+                                    <b class="product-name" th:utext="${cartLineInfo.productInfo.name}"></b>
+                                    <p class="product-details">
+                                        QUANTITY: <span th:utext="${cartLineInfo.quantity}"></span>
+                                        <br>
+                                        CODE: <span th:utext="${cartLineInfo.productInfo.code}"></span>
+                                        <br>
+                                        PRICE: <span th:utext="${cartLineInfo.productInfo.price}"></span>
+                                    </p>
+                                    <a th:href="@{|/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}|}"
+                                       class="remove-link">Remove</a>
+                                </td>
+                                <td>
+                                    $<span th:utext="${cartLineInfo.amount}"></span>
+                                </td>
+                            </tr>
+                        </div>
+                        <tr>
+                            <td colspan="4" class="text-right">
+                                <a th:href="@{/productList}" class="btn btn-secondary">Continue Shopping</a>
+                            </td>
+                        </tr>
+                    </form>
+                </th:block>
+            </table>
+        </div>
+        <!-- Summary Section -->
+        <div class="col-lg-4 col-sm-4 col-xs-12">
+            <h5 class="summary-title">Summary</h5>
+            <table class="table cart-subtotal">
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$<span th:utext="${myCart.amountTotal}"></span></td>
+                </tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td>[<span th:utext="${myCart.quantityTotal}"></span> Items]</td>
+                </tr>
+                <tr>
+                    <td>Estimated Shipping & Handling</td>
+                    <td>FREE</td>
+                </tr>
+                <tr>
+                    <td>Estimated Tax</td>
+                    <td>$0.0</td>
+                </tr>
+                <tr>
+                    <td><b>Total</b></td>
+                    <td><b>$<span th:utext="${myCart.amountTotal}"></span></b></td>
+                </tr>
+            </table>
+            <a th:href="@{/shoppingCartCustomer}" class="btn btn-dark btn-lg btn-block">Checkout
+                <span class="fa fa-arrow-right ml-2"></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Include the footer -->
+<th:block th:include="/_footer"></th:block>
+</body>
+</html>

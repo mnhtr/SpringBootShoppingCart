@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adidas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/login.css}"/>
+    <th:block th:include="/_header"></th:block>
+</head>
+<body>
+<!-- Include the menu -->
+<th:block th:include="/_menu"></th:block>
+
+<!-- Login Section -->
+<div class="container">
+    <div class="row">
+        <!-- Login Section -->
+        <div class="col-lg-6 col-sm-8 col-xs-12">
+            <section id="login-section">
+                <h1>LOG IN</h1>
+                <!-- Error Message -->
+                <th:block
+                        th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
+                    <div class="error-message" th:if="${#request.getParameter('error') == 'true'}">
+                        Login Failed!<br>
+                        Reason:
+                        <span th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span>
+                    </div>
+                </th:block>
+
+                <!-- Login Form -->
+                <form method="POST" th:action="@{/j_spring_security_check}">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" name="userName" class="form-control" id="username"
+                               placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" id="password"
+                               placeholder="Enter your password">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="remember-me">
+                        <label class="form-check-label" for="remember-me">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-black">
+                        LOG IN <span class="fa fa-arrow-right ml-2"></span>
+                    </button>
+                </form>
+
+                <!-- Additional Error Message -->
+                <span class="error-message" th:utext="${error}"></span>
+
+                <br>
+                <a href="#" class="forgot-password">Forgot Your Password?</a>
+                <!-- Agreement -->
+                <p class="agreement mt-4">
+                    By clicking 'Log In' and agree to the
+                    <a href="#">Adidas Privacy Policy</a>, and
+                    <a href="#">Terms & Conditions</a>.
+                </p>
+            </section>
+
+            <!-- Sample User Credentials -->
+            <div class="credentials">
+                <h3>Sample User Credentials:</h3>
+                <ul>
+                    <li>employee1 / 123</li>
+                    <li>manager1 / 123</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Placeholder for Additional Content -->
+        <div class="col-lg-6 col-sm-4 col-xs-12"></div>
+    </div>
+</div>
+
+<!-- Include the footer -->
+<th:block th:include="/_footer"></th:block>
+</body>
+</html>

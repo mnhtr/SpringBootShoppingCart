@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adidas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/productList.css}"/>
+    <th:block th:include="/_header"></th:block>
+</head>
+<body>
+
+<th:block th:include="/_menu"></th:block>
+
+<div class="container">
+    <h2 class="page-title">Product List</h2>
+
+    <div class="product-grid">
+        <!-- Dynamic Product Cards -->
+        <div th:each="prodInfo : ${paginationProducts.list}" class="product-card">
+            <img th:src="@{|/productImage?code=${prodInfo.code}|}" alt="Product Image">
+            <div class="box">
+                <p>$<span th:utext="${prodInfo.price}">0.00</span><br></p>
+                <p class="product-name"><span th:utext="${prodInfo.name}">Product Name</span></p>
+                <h6>Originals</h6>
+                <h6>2 colors</h6>
+                <!-- Show "Buy Now" only if user is NOT a manager -->
+                <th:block sec:authorize="!hasAuthority('ROLE_MANAGER')">
+                    <a th:href="@{|/buyProduct?code=${prodInfo.code}|}" class="btn-buy">Buy Now</a>
+                </th:block>
+
+                <!-- Manager-only options -->
+                <th:block sec:authorize="hasAuthority('ROLE_MANAGER')">
+                    <a th:href="@{|/admin/product?code=${prodInfo.code}|}" class="action-button edit-button">Edit</a>
+
+                    <!-- Delete Button -->
+                    <form th:action="@{|/admin/product?code=${prodInfo.code}|}" method="post"
+                          onsubmit="return confirm('Are you sure you want to delete this product?');" class="action-form">
+                        <input type="hidden" name="_method" value="delete" />
+                        <button type="submit" class="action-button delete-button">Delete</button>
+                    </form>
+                </th:block>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <th:block th:each="page : ${paginationProducts.navigationPages}">
+            <!-- Highlight the current page with 'active' class -->
+            <a th:href="@{|/productList?page=${page}|}"
+               th:classappend="${page == paginationProducts.currentPage} ? 'active' : ''"
+               class="page-number"
+               th:utext="${page}"></a>
+        </th:block>
+    </div>
+</div>
+
+<th:block th:include="/_footer"></th:block>
+
+</body>
+</html>

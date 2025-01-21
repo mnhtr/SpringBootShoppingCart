@@ -1,0 +1,53 @@
+html, body {
+    height: 100%;
+    font-family: 'Lato', 'Open Sans', 'Abel', sans-serif;
+}
+
+ul {
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    margin-bottom: 0.5rem;
+}
+
+.container {
+    margin-top: 2rem;
+}
+
+/* Customer Info Section */
+.customer-info-container {
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 1.5rem;
+}
+
+.customer-info-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.customer-info-container .total {
+    font-weight: bold;
+    color: #d9534f; /* Highlight total amount in red */
+}
+
+/* Table Styles */
+.table {
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.table th, .table td {
+    padding: 0.8rem;
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}

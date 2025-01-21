@@ -1,0 +1,83 @@
+  /* General Styles */
+ .container {
+     margin-top: 2rem;
+ }
+
+ .container h1 {
+     font-weight: bold;
+     margin-bottom: 1.5rem;
+     text-align: left;
+ }
+
+ .forgot-password {
+     display: block;
+     margin-bottom: 1rem;
+     color: #007bff;
+     text-decoration: underline;
+ }
+
+ .forgot-password:hover {
+     color: #0056b3;
+ }
+
+ /* Form Styles */
+ .form-group {
+     margin-bottom: 1.5rem;
+ }
+
+ .form-check-label {
+     font-size: 0.9rem;
+ }
+
+ .container .btn-black {
+     background-color: #000;
+     color: #fff;
+     padding: 10px 20px;
+     font-size: 16px;
+     border: none;
+     cursor: pointer;
+     display: inline-block;
+ }
+
+ .container .btn-black:hover {
+     background-color: #333;
+      color: #fff;
+ }
+
+ .error-message {
+     color: red;
+     font-size: 0.9rem;
+     margin-top: 1rem;
+     text-align: center;
+ }
+
+ /* Agreement Section */
+ .agreement {
+     margin-top: 2rem;
+     font-size: 0.9rem;
+     text-align: left;
+ }
+
+ .agreement a {
+     color: #007bff;
+     text-decoration: underline;
+ }
+
+ .agreement a:hover {
+     color: #0056b3;
+ }
+
+ /* Credentials Section */
+ .credentials {
+     margin-top: 2rem;
+     text-align: left;
+ }
+
+ .credentials ul {
+     padding-left: 1.5rem;
+ }
+
+ .credentials ul li {
+     list-style: none;
+     margin-bottom: 0.5rem;
+ }

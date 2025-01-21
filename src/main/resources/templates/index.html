@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adidas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/index.css}"/>
+    <th:block th:include="/_header"></th:block>
+</head>
+<body>
+<!-- Include the menu -->
+<th:block th:include="/_menu"></th:block>
+
+<!-- Carousel Section -->
+<section id="spring1">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/home_adidas_banner.jpg" alt="Adidas Banner" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block text-left" style="bottom: 50px; left: 120px;">
+                    <h1 class="display-4 text-white font-weight-bold">Lunar New Year</h1>
+                    <p class="text-white">Welcome the new year in style with the collection. <br> Hello, Lunar New Year của adidas 🐍.</p>
+                    <a href="#" class="btn btn-light btn-lg" th:href="@{/productList}">
+                        ORDER NOW <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+
+<!-- Featured Products Section -->
+<div class="rowContent d-flex justify-content-between text-center">
+    <!-- Column 1 -->
+    <div class="col-md-4">
+        <img src="img/adidas_taekwondo.jpg" alt="Adidas Taekwondo" class="img-fluid">
+        <div class="carousel-caption">
+            <h2>Taekwondo</h2>
+            <p>From the edges of the sporting world to the frontlines of culture.</p>
+            <a href="#" class="btn btn-dark" th:href="@{/productList}">SHOP NOW <i class="fa fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <!-- Column 2 -->
+    <div class="col-md-4">
+        <img src="img/adidas_x_liberty.jpg" alt="Adidas Liberty" class="img-fluid">
+        <div class="carousel-caption">
+            <h2>Adidas x London</h2>
+            <p>Bold florals. Epic adventure.</p>
+            <a href="#" class="btn btn-dark" th:href="@{/productList}">SHOP NOW <i class="fa fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <!-- Column 3 -->
+    <div class="col-md-4">
+        <img src="img/adidas_equipment.jpg" alt="Adidas Equipment" class="img-fluid">
+        <div class="carousel-caption">
+            <h2>Adidas Equipment</h2>
+            <p>Everything is necessary. There's nothing superfluous.</p>
+            <a href="#" class="btn btn-dark" th:href="@{/productList}">SHOP NOW <i class="fa fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+<br><br>
+
+<!-- About Section -->
+<section id="about">
+    <div class="section-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-text">
+                        <h3>About Us</h3>
+                        <p class="lead">
+                            Adidas is about more than sportswear and workout clothes. We partner with the best in the industry to co-create. This way we offer our fans the sports apparel and style that match their athletic needs, while keeping sustainability in mind. We’re here to support creators, improve their game, and create change. And we think about the impact we have on our world.
+                        </p>
+
+                        <h5>Follow Us</h5>
+                        <div class="social-links">
+                            <a href="#" class="btn btn-sm btn-outline-light">Facebook</a>
+                            <a href="#" class="btn btn-sm btn-outline-light">Twitter</a>
+                            <a href="#" class="btn btn-sm btn-outline-light">Instagram</a>
+                            <a href="#" class="btn btn-sm btn-outline-light">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Include the footer -->
+<th:block th:include="/_footer"></th:block>
+</body>
+</html>
