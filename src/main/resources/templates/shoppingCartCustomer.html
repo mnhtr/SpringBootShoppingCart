@@ -36,7 +36,7 @@
                     <!-- Phone -->
                     <div class="form-group mb-3">
                         <label for="customerPhone">Phone</label>
-                        <input type="tel" class="form-control" id="customerPhone" th:field="*{phone}">
+                        <input type="number" class="form-control" id="customerPhone" th:field="*{phone}">
                         <span class="error-message"
                               th:if="${#fields.hasErrors('phone')}"
                               th:errors="*{phone}"></span>
