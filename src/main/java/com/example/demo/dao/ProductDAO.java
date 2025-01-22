@@ -80,8 +80,9 @@ public class ProductDAO {
         Product product = findProduct(code);
         if (product != null) {
             Session session = this.sessionFactory.getCurrentSession();
-            session.remove(product);
-            session.flush(); // Ensure the deletion is executed immediately
+            product.setStatus(false); // Update status to false
+            session.update(product); // Persist the change
+            session.flush(); // Ensure the update is executed immediately
         }
     }
 
@@ -91,8 +92,12 @@ public class ProductDAO {
                 .append("(p.code, p.name, p.price) from ")
                 .append(Product.class.getName()).append(" p");
 
+        // Always filter by status = 1
+        sql.append(" Where p.status = 1");
+
+        // Add additional filter for likeName if provided
         if (likeName != null && !likeName.isEmpty()) {
-            sql.append(" Where lower(p.name) like :likeName");
+            sql.append(" and lower(p.name) like :likeName");
         }
 
         sql.append(" order by p.createDate desc");
@@ -100,6 +105,7 @@ public class ProductDAO {
         Session session = this.sessionFactory.getCurrentSession();
         Query<ProductInfo> query = session.createQuery(sql.toString(), ProductInfo.class);
 
+        // Set parameter for likeName if provided
         if (likeName != null && !likeName.isEmpty()) {
             query.setParameter("likeName", "%" + likeName.toLowerCase() + "%");
         }
@@ -107,7 +113,4 @@ public class ProductDAO {
         return new PaginationResult<>(query, page, maxResult, maxNavigationPage);
     }
 
-    public PaginationResult<ProductInfo> queryProducts(int page, int maxResult, int maxNavigationPage) {
-        return queryProducts(page, maxResult, maxNavigationPage, null);
-    }
 }

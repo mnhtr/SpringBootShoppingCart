@@ -30,11 +30,13 @@
                     <a class="nav-link" th:href="@{/productList}">Product List</a>
                 </li>
 
-                <!-- Cart -->
-                <li class="nav-item"
-                    th:classappend="${#httpServletRequest.requestURI.startsWith('/shoppingCart') ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/shoppingCart}">Cart</a>
-                </li>
+                <!-- Cart (Visible to users/ROLE_EMPLOYEE without ROLE_MANAGER) -->
+                <th:block sec:authorize="!hasRole('ROLE_MANAGER')">
+                    <li class="nav-item"
+                        th:classappend="${#httpServletRequest.requestURI.startsWith('/shoppingCart') ? 'active' : ''}">
+                        <a class="nav-link" th:href="@{/shoppingCart}">Cart</a>
+                    </li>
+                </th:block>
 
                 <!-- Order List (Authorized) -->
                 <th:block sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_EMPLOYEE')">

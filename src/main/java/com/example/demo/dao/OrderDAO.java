@@ -70,7 +70,7 @@ public class OrderDAO {
             detail.setOrder(order);
             detail.setAmount(line.getAmount());
             detail.setPrice(line.getProductInfo().getPrice());
-            detail.setQuanity(line.getQuantity());
+            detail.setQuantity(line.getQuantity());
 
             Product product = productDAO.findProduct(line.getProductInfo().getCode());
             detail.setProduct(product);
@@ -136,7 +136,7 @@ public class OrderDAO {
      */
     public List<OrderDetailInfo> listOrderDetailInfos(String orderId) {
         String sql = "Select new " + OrderDetailInfo.class.getName() +
-                "(d.id, d.product.code, d.product.name, d.quanity, d.price, d.amount) " +
+                "(d.id, d.product.code, d.product.name, d.quantity, d.price, d.amount) " +
                 "from " + OrderDetail.class.getName() + " d where d.order.id = :orderId";
 
         Session session = sessionFactory.getCurrentSession();

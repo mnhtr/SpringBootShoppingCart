@@ -43,20 +43,21 @@
                 <!-- Product Price -->
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="text" class="form-control" th:field="*{price}" id="price"/>
+                    <input type="number" class="form-control" th:field="*{price}" id="price"/>
                     <span class="error-message" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
                 </div>
 
                 <!-- Product Image -->
                 <div class="form-group">
                     <label>Image</label>
-                    <img th:src="@{|/productImage?code=${productForm.code}|}" alt="Product Image"/>
+                    <img id="imagePreview" th:src="@{|/productImage?code=${productForm.code}|}" alt="Product Image"
+                         onerror="this.onerror=null; this.src='/img/logo.png';">
                 </div>
 
                 <!-- Upload Image -->
                 <div class="form-group">
                     <label for="fileData">Upload Image</label>
-                    <input type="file" class="form-control-file" id="fileData" th:field="*{fileData}"/>
+                    <input type="file" class="form-control-file" id="fileData" th:field="*{fileData}" accept="image/*" onchange="previewImage(event)"/>
                 </div>
 
                 <!-- Submit and Reset Buttons -->
@@ -68,5 +69,23 @@
         </div>
     </div>
 </div>
+
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0]; // Get the selected file
+        const reader = new FileReader(); // Create a FileReader to read the file
+
+        // When the file is loaded, set it as the src of the image preview
+        reader.onload = function (e) {
+            const imagePreview = document.getElementById('imagePreview');
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = 'block'; // Show the image
+        };
+
+        if (file) {
+            reader.readAsDataURL(file); // Read the file as a data URL
+        }
+    }
+</script>
 </body>
 </html>

@@ -6,7 +6,7 @@ public class OrderDetailInfo {
     private String productCode;
     private String productName;
  
-    private int quanity;
+    private int quantity;
     private double price;
     private double amount;
  
@@ -16,11 +16,11 @@ public class OrderDetailInfo {
  
     // Using for JPA/Hibernate Query.
     public OrderDetailInfo(String id, String productCode, //
-            String productName, int quanity, double price, double amount) {
+            String productName, int quantity, double price, double amount) {
         this.id = id;
         this.productCode = productCode;
         this.productName = productName;
-        this.quanity = quanity;
+        this.quantity = quantity;
         this.price = price;
         this.amount = amount;
     }
@@ -49,12 +49,12 @@ public class OrderDetailInfo {
         this.productName = productName;
     }
  
-    public int getQuanity() {
-        return quanity;
+    public int getQuantity() {
+        return quantity;
     }
  
-    public void setQuanity(int quanity) {
-        this.quanity = quanity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
  
     public double getPrice() {
