@@ -38,12 +38,6 @@
     height: 120px;
     text-align: left;
     font-family: Arial, sans-serif;
-    /* */
-    /* Fixed height for consistent descriptions */
-    /*
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;*/
 }
 
 .page-title {
